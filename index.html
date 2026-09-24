@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#06101d">
+  <title>Ella — un lugar al que todavía se puede volver</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="cursor-glow"></div>
+
+  <main id="world">
+    <section class="gate" id="gate" aria-label="Entrada">
+      <div class="gate-content">
+        <p class="eyebrow">ARCHIVO DE UN LUGAR</p>
+        <h1>Ella no es alguien.<br><em>Ella es un lugar.</em></h1>
+        <p class="gate-copy">
+          Hay sitios que no aparecen en ningún mapa.<br>
+          Sólo existen cuando uno vuelve a cerrar los ojos.
+        </p>
+        <button id="enterButton" class="enter-button">
+          <span>¿Quieres entrar?</span>
+          <i>↗</i>
+        </button>
+        <p class="hint">pon el mundo en silencio por un momento</p>
+      </div>
+      <div class="gate-stars"></div>
+    </section>
+
+    <section class="place" id="place" aria-hidden="true">
+      <header class="topbar">
+        <div class="mark">ELLA<span>·</span></div>
+        <button class="sound-control" id="soundControl" aria-label="Pausar música">
+          <span class="sound-bars"><i></i><i></i><i></i><i></i></span>
+          <span id="soundText">sonando</span>
+        </button>
+      </header>
+
+      <div class="intro">
+        <p class="eyebrow">NO ES UN RECUERDO</p>
+        <h2>Es un lugar<br><em>al que todavía sé volver.</em></h2>
+        <p>
+          Aquí el tiempo no corre.<br>
+          Sólo cambia de paisaje.
+        </p>
+      </div>
+
+      <div class="drawers" id="drawers">
+        <article class="drawer drawer-wide" data-index="01">
+          <div class="drawer-bg sky"></div>
+          <div class="drawer-content">
+            <span class="number">01</span>
+            <p class="category">cielo</p>
+            <h3>Las estrellas también<br><em>guardan caminos.</em></h3>
+            <p class="poem">
+              A veces el cielo parece recordar por nosotros.<br>
+              Basta mirar arriba para que alguna luz<br>
+              pronuncie un nombre que nunca escribimos.
+            </p>
+            <button class="open-memory" data-target="memory-stars">abrir paisaje</button>
+          </div>
+        </article>
+
+        <article class="drawer" data-index="02">
+          <div class="drawer-bg meadow"></div>
+          <div class="drawer-content">
+            <span class="number">02</span>
+            <p class="category">tierra</p>
+            <h3>Donde el viento<br><em>no tenía prisa.</em></h3>
+            <p class="poem">Un campo verde. Amapolas. El sonido pequeño de la vida.</p>
+            <button class="open-memory" data-target="memory-meadow">abrir paisaje</button>
+          </div>
+        </article>
+
+        <article class="drawer" data-index="03">
+          <div class="drawer-bg rain"></div>
+          <div class="drawer-content">
+            <span class="number">03</span>
+            <p class="category">lluvia</p>
+            <h3>Hay tardes que<br><em>no terminan.</em></h3>
+            <p class="poem">Quizá algunas tardes sólo cambian de forma.</p>
+            <button class="open-memory" data-target="memory-rain">abrir paisaje</button>
+          </div>
+        </article>
+
+        <article class="drawer drawer-video" data-index="04">
+          <div class="drawer-bg film"></div>
+          <div class="drawer-content">
+            <span class="number">04</span>
+            <p class="category">movimiento</p>
+            <h3>Lo que una cámara<br><em>no alcanzó a decir.</em></h3>
+            <p class="poem">Algunos segundos merecen otra oportunidad.</p>
+            <button class="open-memory" data-target="memory-video">abrir paisaje</button>
+          </div>
+        </article>
+
+        <article class="drawer drawer-wide" data-index="05">
+          <div class="drawer-bg night"></div>
+          <div class="drawer-content">
+            <span class="number">05</span>
+            <p class="category">noche</p>
+            <h3>Cuando la noche<br><em>se parecía a nosotros.</em></h3>
+            <p class="poem">No hacía falta decir nada. La oscuridad ya entendía.</p>
+            <button class="open-memory" data-target="memory-night">abrir paisaje</button>
+          </div>
+        </article>
+      </div>
+
+      <footer class="footer">
+        <span>ELLA / 00:00 — sin fecha</span>
+        <span>un archivo que no quiere terminar</span>
+      </footer>
+    </section>
+  </main>
+
+  <div class="memory-modal" id="memoryModal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="memory-panel">
+      <button class="close-memory" id="closeMemory" aria-label="Cerrar">×</button>
+
+      <div class="memory-view" id="memory-stars">
+        <div class="visual stars-visual"></div>
+        <div class="memory-text">
+          <span>01 / cielo</span>
+          <h2>Quizá por eso<br><em>mirábamos arriba.</em></h2>
+          <p>Porque algunas cosas sólo pueden entenderse cuando están demasiado lejos para tocarlas.</p>
+        </div>
+      </div>
+
+      <div class="memory-view" id="memory-meadow">
+        <div class="visual meadow-visual"></div>
+        <div class="memory-text">
+          <span>02 / tierra</span>
+          <h2>El mundo era<br><em>más lento allí.</em></h2>
+          <p>El pasto se movía primero. Las amapolas después. Y el resto del mundo podía esperar.</p>
+        </div>
+      </div>
+
+      <div class="memory-view" id="memory-rain">
+        <div class="visual rain-visual"></div>
+        <div class="memory-text">
+          <span>03 / lluvia</span>
+          <h2>La lluvia nunca<br><em>preguntó la hora.</em></h2>
+          <p>Caía sobre los techos como si supiera que algunas noches merecen durar un poco más.</p>
+        </div>
+      </div>
+
+      <div class="memory-view" id="memory-video">
+        <div class="video-wrap">
+          <video id="memoryVideo" controls playsinline preload="metadata">
+            <source src="videos/momento.mp4" type="video/mp4">
+          </video>
+          <div class="video-empty">
+            <span>04 / movimiento</span>
+            <strong>Tu fragmento todavía no ha llegado.</strong>
+            <small>Coloca tu video en <code>videos/momento.mp4</code> y aparecerá aquí.</small>
+          </div>
+        </div>
+        <div class="memory-text">
+          <span>04 / movimiento</span>
+          <h2>Algunas escenas<br><em>merecen quedarse.</em></h2>
+          <p>Este cajón acepta tus propios videos. No hace falta explicar lo que significan.</p>
+        </div>
+      </div>
+
+      <div class="memory-view" id="memory-night">
+        <div class="visual night-visual"></div>
+        <div class="memory-text">
+          <span>05 / noche</span>
+          <h2>Y por un instante,<br><em>el tiempo cedió.</em></h2>
+          <p>Todo lo que alguna vez fue enorme cabía en una noche tranquila.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <audio id="song" preload="auto" loop>
+    <source src="assets/the-night-we-met.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
